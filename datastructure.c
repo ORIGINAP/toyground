@@ -4,25 +4,28 @@
 
 typedef struct List{ int data; struct List* next;} List;
 
-void go_end_list(List* src){
+List* add_list(int p_node, List* src){
+    List* n_node;
+    List* origin_node;
+
+    n_node = (List*)malloc(sizeof(List));
+    origin_node = src;
+    n_node->data = p_node;
+    n_node->next = NULL;
     while(src->next){
         printf("%p\n",src);
         src = src->next;
     }
-}
-
-List* add_list(int p_node, List* src){
-    List* n_node;
-    List* origin_node;
-    List* temp_node;
-
-    n_node = (List*)malloc(sizeof(List));
-    origin_node = src;
-    go_end_list(src);
-    n_node->data = p_node;
-    n_node->next = NULL;
     src->next = n_node;
     return origin_node;
+}
+
+void freeall(List* src){
+    while(src){
+        List* temp = src->next;
+        free(src);
+        src = temp;
+    }
 }
 
 int main(){
@@ -40,5 +43,5 @@ int main(){
         printf("%d\n", test->data);
         test = test->next;
     }
-    
+    freeall(test);
 }
