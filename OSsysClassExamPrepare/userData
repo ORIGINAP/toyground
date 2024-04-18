@@ -1,0 +1,2 @@
+/etc/passwd : User Account info file
+/var/log/auth.log : authetic log file

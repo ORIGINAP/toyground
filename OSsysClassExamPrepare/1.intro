@@ -1,0 +1,7 @@
+1. Operating System OS
+2. HyperViser(Virtualize Software)
+3. Virtual Machine
+	-> Host OS(normally, Win-Mac)
+	-> Guest OS(in VirtuBox, like Linux)
+
+

@@ -1,0 +1,18 @@
+Enter Input mode : i, a
+Enter Command mode : ESC
+Enter Last Colum mode : ':'
+Save other name : ':w filename + Enter'
+Save : ':w + Enter'
+quit : ':q + Enter'
+Force Quit : ':q! + Enter'
+Save Quit : ':wq + Enter'
+
+[Command List]
+x : remove one character
+dd : remove one line
+u : undo
+/wordname : Search wordname
+	-> n : next word
+	-> N : previous word
+:!shellCommand : Execute ShellCommand
+

@@ -1,0 +1,20 @@
+User default Shell Declare in etc/passwd
+
+* -> Symbol of all character, and string
+? -> Symbol of just one Character.
+
+echo (string) : show string
+c1;c2;c3 : Execute Command in order
+	-> this command is weakness, Warning.
+c1|c2 : pipeline, Exucute Command is order, but resulf of front order is given to next order
+ps -ef : show prosess now running
+
+[I/O redirection]
+file descruptor
+0 : stdin > standard input
+1 : stdout > standard ouput
+2 : stderr > standard error
+
+> (out Redirection) : save result to file, not display.
+>> (output redirection add to end) :work >, not replace but add to end
+< (input) : input parameter to left command
