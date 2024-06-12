@@ -19,15 +19,11 @@ int IsFull(){
         return false;
 }
 void push(int val){
-    if(IsFull()==true)
-        printf("Stack is full");
-    else
+    if(IsFull()==false)
         stack[++top] = val;
 }
 int pop(){
-    if(IsEmpty()==true)
-        printf("Stack is Empty");
-    else
+    if(IsEmpty()==false)
         return stack[top--];
     return -1;
 }
@@ -48,7 +44,7 @@ void DFS(int start_vertex,int** graph,int* visited, int max_vertex){
             }
         }
     }
-    printf("%d\n",connected_net);
+    printf("%d",connected_net);
 }
 
 int main(){
@@ -74,12 +70,6 @@ int main(){
         scanf("%d %d",(p1+i),(p2+i));
         graph[*(p1+i)-1][*(p2+i)-1]=1;
         graph[*(p2+i)-1][*(p1+i)-1]=1;
-    }
-    for(int i=0;i<com_max;i++){
-        for(int j=0; j<com_max; j++){
-            printf("[%d]",graph[i][j]);
-        }
-        printf("\n");
     }
     DFS(0,graph,visited,com_max);
 }
