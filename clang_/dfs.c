@@ -3,7 +3,8 @@
 //#include<stack.h>
 
 /*
-들어온 컴퓨터 대수 만큼 테이블 생성
+들어온 컴퓨터 대수 만큼 테이블 생성 -> ok
+
 
 */
 int main(){
@@ -12,7 +13,10 @@ int main(){
     int*    p1;
     int*    p2;
 
+    int*     visited;
+
     scanf("%d",&com_max);
+    visited = (int*)malloc(sizeof(int*)*com_max);
     scanf("%d",&input_size);
     p1 = (int*)malloc(sizeof(int*)*input_size);
     p2 = (int*)malloc(sizeof(int*)*input_size);
