@@ -26,15 +26,16 @@ def calc(a,opr,b):
             return -(abs(a)//abs(b))
         return a//b
 
-def select_opr(opr_lst,wordset,depth,result):
+def select_opr(opr_lst,wordset,depth,output):
     if(depth<opr_len):
-        for i in opr_lst:
+        for i in range(0,len(opr_lst)):
             opr_lst_cp=opr_lst.copy()
-            wordset.append(i)
-            opr_lst_cp.pop(0)
-            select_opr(opr_lst_cp,wordset,depth+1,result)
+            wordset.append(opr_lst[i])
+            opr_lst_cp.pop(i)
+            select_opr(opr_lst_cp,wordset,depth+1,output)
+            wordset.pop()
     else:
-        result.append(wordset[:])
+        output+=wordset
 
 def include_opr(num_set, wordset, result,n):
     if(n+1<len(num_set)):
