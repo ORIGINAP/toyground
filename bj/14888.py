@@ -1,3 +1,8 @@
+'''
+개선사항 : 중복계산(중복을 잡지 않는 순열)
+방문여부 탐색? dfs
+'''
+
 import sys
 input = sys.stdin.readline
 l = int(input())
@@ -26,14 +31,17 @@ def calc(a,opr,b):
             return -(abs(a)//abs(b))
         return a//b
 
-def select_opr(opr_lst,wordset,depth,output):
+def select_opr(opr_lst,wordset,depth,output,visited):
     if(depth<opr_len):
         for i in range(0,len(opr_lst)):
-            opr_lst_cp=opr_lst.copy()
-            wordset.append(opr_lst[i])
-            opr_lst_cp.pop(i)
-            select_opr(opr_lst_cp,wordset,depth+1,output)
-            wordset.pop()
+            if not visited[i]:
+                visited[i]=True
+                opr_lst_cp=opr_lst.copy()
+                wordset.append(opr_lst[i])
+                opr_lst_cp.pop(i)
+                select_opr(opr_lst_cp,wordset,depth+1,output,visited)
+                wordset.pop()
+                visited[i]=False
     else:
         output+=wordset
 
@@ -47,7 +55,8 @@ def mix_max(sum):
     print(max(sum))
     print(min(sum))
 
-select_opr(opr_lst,wordset,depth,result)
+visited = [False]*opr_len
+select_opr(opr_lst,wordset,depth,result,visited)
 result = [result[i:i+opr_len] for i in range(0,len(result),opr_len)]
 sum = []
 for n in range(0,len(result)):
